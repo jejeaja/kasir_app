@@ -1,6 +1,6 @@
 <?php
-require_once('../db/db_connection.php');
-require_once('../db/db_register.php');
+require_once('../../db/db_connection.php');
+require_once('../../db/db_register.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ require_once('../db/db_register.php');
 </head>
 <body>
     <div class="container">
-        <img style="width: 100px; margin-bottom: 2rem; " src="../assets/images/pdi.jpg" alt="PDI Logo">
+        <img style="width: 100px; margin-bottom: 2rem; " src="../assets/images/logo.png" alt="Logo">
         <form method="POST">
             <?php if (isset($error_message)) : ?>
                 <div class="error-message"><?php echo $error_message; ?></div>
