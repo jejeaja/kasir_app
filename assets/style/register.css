@@ -1,77 +1,70 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center; /* Mengatur posisi horizontal ke tengah */
-    align-items: center; /* Mengatur posisi vertikal ke tengah */
-    height: 100vh; /* Menggunakan tinggi viewport untuk memastikan elemen berada di tengah halaman */
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
 }
 
 .container {
-    width: 400px;
+    max-width: 400px;
+    margin: 100px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
+    background-color: #f9e8fc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative; /* Mengatur posisi relatif untuk posisi absolut anak-anaknya */
+    border-radius: 8px;
 }
 
-.container img {
-    display: block;
-    margin: 0 auto;
+img {
+    width: 100px;
+    margin-bottom: 2rem;
 }
 
 form {
-    margin-top: 20px;
-}
-
-form div {
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-input[type="text"],
-input[type="password"] {
-    width: 100%;
+input {
     padding: 10px;
+    margin-bottom: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+button {
+    padding: 12px;
+    background-color: #f5abff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #f5abff;
 }
 
 .error-message {
     color: #ff0000;
-    margin-bottom: 10px;
-}
-
-.text-center {
+    margin-bottom: 16px;
     text-align: center;
 }
 
-.text-center a {
-    color: #007bff;
+p {
+    text-align: center;
+    margin-top: 16px;
+}
+
+a {
+    color: #f5abff;
     text-decoration: none;
 }
 
-.text-center a:hover {
+a:hover {
     text-decoration: underline;
 }
