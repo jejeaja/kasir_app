@@ -53,7 +53,7 @@ $result = $conn->query($query);
         <td><?php echo htmlspecialchars($row['nama_produk']); ?></td>
         <td>Rp. <?php echo number_format($row['harga_produk']); ?></td>
         <td><?php echo number_format($row['jumlah']); ?> pcs</td>
-        <td><?php echo date('d F Y H:i:s', strtotime($row['updated_at'])); ?></td>
+        <td><?php echo date('d F Y H:i:s', strtotime($row['created_at'])); ?></td>
         <td class="actton-buttons">
             <form action="./update_product.php" method="get">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
