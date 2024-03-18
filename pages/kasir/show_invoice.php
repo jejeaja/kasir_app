@@ -1,14 +1,16 @@
 <?php
-session_start();
-require_once('../db/db_connection.php');
-require_once('../db/db_process_checkout.php');
+require_once('../../db/DB_connection.php');
+require_once('../../db/DB_process_checkout.php');
 
-if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: ../index.php');
+if (!isset($_SESSION['invoice_data'])) {
+    echo "No invoice data found.";
     exit;
 }
 
-$realName = $_SESSION['nama'];
+$invoice_data = $_SESSION['invoice_data'];
+
+// Convert the updated_at timestamp to "Tanggal Bulan" format
+$tanggal_bulan = date('d F Y H:i:s', strtotime($invoice_data['updated_at']));
 ?>
 
 <!DOCTYPE html>
@@ -16,22 +18,32 @@ $realName = $_SESSION['nama'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEJE | Welcome Cashier</title>
-    <link rel="stylesheet" href="../assets/style/dashboard.css">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="../../assets/style/show_invoice.css"> 
+    <link rel="stylesheet" href="../../assets/style/print_invoice.css" media="print"> 
 </head>
 <body>
-    <h1>Hello, <?php echo htmlspecialchars($realName);?>! Welcome to the dashboard</h1>
-    <form action="../db/db_logout.php" method="post">
-    <button type="submit" class="btn-logout">Log Out</button>
-    </form>
-    <div class="dashboard-content">
-    <h2>Dashboard</h2>
-    <p>Welcome to the JEJE Cashier dashboard. you can manage product and perform other tasks here.</p>
+    <div class="invoice-container">
+        <h1>Invoice</h1>
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Quantity</th>
+                <th>Unique Code</th>
+                <th>Tanggal Bulan</th> 
+            </tr>
+            <tr>
+                <td><?php echo htmlspecialchars($invoice_data['product_id']); ?></td>
+                <td><?php echo htmlspecialchars($invoice_data['nama_produk']); ?></td>
+                <td>Rp. <?php echo number_format($invoice_data['harga_produk']); ?></td>
+                <td><?php echo number_format($invoice_data['jumlah']); ?> pcs</td>
+                <td><?php echo htmlspecialchars($invoice_data['kode_unik']); ?></td>
+                <td><?php echo $tanggal_bulan; ?></td> 
+            </tr>
+        </table>
     </div>
-    <div class="additional-content">
-    <h2>Manage Product</h2>
-    <p>Would you like ro manage product</p>
-    <p><a href="./kasir/manage_product.php" class="text-blue-500 hover:underline">Click here</a></p>
-    </div>
+    <button onclick="window.print()">Print Invoice</button>
 </body>
 </html>

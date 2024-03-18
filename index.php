@@ -1,6 +1,12 @@
 <?php
 require_once('./db/db_connection.php');
 require_once('./db/db_login.php');
+
+$error_message = "";
+
+if (isset($error_message) && !empty($error_message)) {
+    $error_message = "<div class='error-message'>Invalid username or password. Please try again.</div>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +21,7 @@ require_once('./db/db_login.php');
     <div class="container">
         <img style="width: 100px; margin-bottom: 2rem;" src="./assets/images/logo.png" alt="btr">
         <form method="POST">
-            <?php if (isset($error_message)) : ?>
-                <div class="error-message"><?php echo $error_message; ?></div>
-            <?php endif; ?>
+            <?php echo $error_message; ?>
             <div>
                 <label for="username">Username</label>
                 <input id="username" name="username" type="text" placeholder="Username" required>

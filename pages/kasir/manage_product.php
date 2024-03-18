@@ -3,7 +3,7 @@ session_start();
 require_once('../../db/db_connection.php');
 
 if (!isset($_SESSION['loggedin']) || $_SESSION ['loggedin'] !== true) {
-    header ('Locatton: .-/Index-php'); 
+    header ('Location: ../../index.php'); 
     exit;
 }
 
@@ -17,13 +17,13 @@ $result = $conn->query($query);
     <meta charset=UTF-8>
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
 <Link rel="stylesheet" href="../../assets/style/manage_product.css">
+<Link rel="stylesheet" href="../../assets/style/navbar.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Hello, <?php echo htmlspecialchars($_SESSION['nama']); ?>! Welcome to product management!
-</h1>
+<?php include 'navbar.php';?>
+<div class="header">
+        <h1>Hello, <?php echo htmlspecialchars($_SESSION['nama']); ?>! Welcome to product management!</h1>
 </div>
-
 <div class="form-container">
     <form action="../../db/db_add_product.php" method="post">
         <label for="nama_produk">Produk Name:</label>

@@ -12,7 +12,7 @@ require_once('../db/db_register.php');
 </head>
 <body>
     <div class="container">
-        <img style="width: 100px; margin-bottom: 2rem; " src="../assets/images/btr.png" alt="btr Logo">
+        <img style="width: 100px; margin-bottom: 2rem; " src="../assets/images/logo.png" alt="btr Logo">
         <form method="POST">
             <?php if (isset($error_message)) : ?>
                 <div class="error-message"><?php echo $error_message; ?></div>
