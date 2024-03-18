@@ -14,7 +14,7 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="../dashboard.php">Dashboard</a></li>
+                <li><a href="dashboard.php">Dashboard</a></li>
                 <li><a href="kasir/manage_product.php">Manage Products</a></li>
                 <li><a href="../db/db_logout.php">Logout</a></li>
             </ul>
