@@ -20,7 +20,7 @@ $result = $conn->query($query);
 <Link rel="stylesheet" href="../../assets/style/navbar.css">
 </head>
 <body>
-<?php include 'navbar.php';?>
+<?php include '../navbar.php';?>
 <div class="header">
         <h1>Hello, <?php echo htmlspecialchars($_SESSION['nama']); ?>! Welcome to product management!</h1>
 </div>
@@ -65,7 +65,7 @@ $result = $conn->query($query);
             </form> 
             <form action="../../db/db_process_checkout.php" method="post">
                 <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
-                <button type="submit" class="checkout-button" name="checkout_product">Checkout</button>
+                <button type="submit" class="checkout-button" name="checkout_product">Print</button>
             </form>
 </td>
 </tr>

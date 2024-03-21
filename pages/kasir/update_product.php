@@ -32,7 +32,7 @@ if(isset($_GET['id'])) {
     <link rel="stylesheet" href="../../assets/style/navbar.css">
 </head>
 <body>
-    <?php include 'navbar.php';?>
+    <?php include '../navbar.php';?>
     <h1>Edit Product</h1>
     <div class="form-container">
         <form action="../../db/DB_update_product.php" method="post">
